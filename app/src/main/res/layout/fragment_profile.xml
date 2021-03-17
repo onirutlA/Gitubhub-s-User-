@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.profile.ProfileFragment">
+
+    <include
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleImageView"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/developer_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/developer_name"
+            style="@style/Headline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/developer_name"
+            app:layout_constraintEnd_toEndOf="@+id/circleImageView"
+            app:layout_constraintHorizontal_bias="0.484"
+            app:layout_constraintStart_toStartOf="@+id/circleImageView"
+            app:layout_constraintTop_toBottomOf="@+id/circleImageView"
+            tools:text="Ricky Alturino" />
+
+        <TextView
+            android:id="@+id/developer_detail"
+            style="@style/Body2"
+            android:layout_width="360dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/developer_detail"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@+id/developer_name"
+            app:layout_constraintStart_toStartOf="@+id/developer_name"
+            app:layout_constraintTop_toBottomOf="@+id/developer_name"
+            tools:text="Android Native Developer, Web Developer, UI/UX Designer, Comptuer Science Student" />
+
+        <ImageView
+            android:id="@+id/hackerrank_icon"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/hackerrank_icon"
+            app:layout_constraintEnd_toEndOf="@+id/developer_detail"
+            app:layout_constraintStart_toEndOf="@+id/instagram_icon"
+            app:layout_constraintTop_toBottomOf="@+id/developer_detail" />
+
+        <ImageView
+            android:id="@+id/instagram_icon"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/instagram_icon"
+            app:layout_constraintEnd_toStartOf="@+id/hackerrank_icon"
+            app:layout_constraintStart_toEndOf="@+id/github_icon"
+            app:layout_constraintTop_toBottomOf="@+id/developer_detail" />
+
+        <ImageView
+            android:id="@+id/linkedin"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/linkedin_icon"
+            app:layout_constraintEnd_toStartOf="@+id/github_icon"
+            app:layout_constraintStart_toStartOf="@+id/developer_detail"
+            app:layout_constraintTop_toBottomOf="@+id/developer_detail" />
+
+        <ImageView
+            android:id="@+id/github_icon"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/github_icon"
+            app:layout_constraintEnd_toStartOf="@+id/instagram_icon"
+            app:layout_constraintStart_toEndOf="@+id/linkedin"
+            app:layout_constraintTop_toBottomOf="@+id/developer_detail" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
