@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="NavDrawer">16dp</dimen>
+    <dimen name="Card">8dp</dimen>
+    <dimen name="Appbar">4dp</dimen>
+    <dimen name="FAB">6dp</dimen>
+    <dimen name="Button">8dp</dimen>
+    <dimen name="Dialog">24dp</dimen>
+</resources>
