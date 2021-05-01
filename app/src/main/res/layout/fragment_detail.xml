@@ -29,7 +29,7 @@
                 android:layout_height="match_parent">
 
                 <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/detail_header_name"
+                    android:id="@+id/detail_nav_name"
                     style="@style/Subtitle2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -62,11 +62,71 @@
                 tools:src="@drawable/developer_image" />
 
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/detail_header_follower"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toStartOf="@+id/detail_header_following"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/detail_user_nickname"
+                tools:text="Followers" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/detail_number_follower"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="@+id/detail_header_follower"
+                app:layout_constraintStart_toStartOf="@+id/detail_header_follower"
+                app:layout_constraintTop_toBottomOf="@+id/detail_header_follower"
+                tools:text="15" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/detail_header_following"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toStartOf="@+id/detail_header_repository"
+                app:layout_constraintStart_toEndOf="@+id/detail_header_follower"
+                app:layout_constraintTop_toBottomOf="@+id/detail_user_nickname"
+                tools:text="Following" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/detail_number_following"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="@+id/detail_header_following"
+                app:layout_constraintStart_toStartOf="@+id/detail_header_following"
+                app:layout_constraintTop_toBottomOf="@+id/detail_header_following"
+                tools:text="16" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/detail_number_repository"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="@+id/detail_header_repository"
+                app:layout_constraintStart_toStartOf="@+id/detail_header_repository"
+                app:layout_constraintTop_toBottomOf="@+id/detail_header_repository"
+                tools:text="7" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/detail_header_repository"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/detail_header_following"
+                app:layout_constraintTop_toBottomOf="@+id/detail_user_nickname"
+                tools:text="Repository" />
+
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/detail_user_name"
                 style="@style/Headline5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="@+id/detail_user_image"
                 app:layout_constraintStart_toStartOf="@+id/detail_user_image"
                 app:layout_constraintTop_toBottomOf="@+id/detail_user_image"
@@ -84,94 +144,93 @@
                 tools:text="onirutlA" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/detail_user_location"
+                android:id="@+id/detail_tv_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                app:layout_constraintBottom_toBottomOf="@+id/ic_location"
-                app:layout_constraintStart_toEndOf="@+id/ic_location"
-                app:layout_constraintTop_toTopOf="@+id/ic_location"
+                app:layout_constraintBottom_toBottomOf="@+id/detail_ic_location"
+                app:layout_constraintStart_toEndOf="@+id/detail_ic_location"
+                app:layout_constraintTop_toTopOf="@+id/detail_ic_location"
                 tools:text="Palembang, Indonesia" />
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/ic_company"
+                android:id="@+id/detail_ic_company"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp"
                 android:src="@drawable/ic_company"
                 android:tint="@color/black"
-                app:layout_constraintBottom_toTopOf="@+id/ic_location"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/detail_user_nickname" />
+                app:layout_constraintTop_toBottomOf="@+id/detail_number_follower" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/tv_company"
+                android:id="@+id/detail_tv_company"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                app:layout_constraintBottom_toBottomOf="@+id/ic_company"
-                app:layout_constraintStart_toEndOf="@+id/ic_company"
-                app:layout_constraintTop_toTopOf="@+id/ic_company"
+                app:layout_constraintBottom_toBottomOf="@+id/detail_ic_company"
+                app:layout_constraintStart_toEndOf="@+id/detail_ic_company"
+                app:layout_constraintTop_toTopOf="@+id/detail_ic_company"
                 tools:text="Sriwijaya University" />
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/ic_location"
+                android:id="@+id/detail_ic_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
                 android:src="@drawable/ic_location"
                 android:tint="@color/black"
-                app:layout_constraintBottom_toTopOf="@+id/ic_link"
-                app:layout_constraintEnd_toEndOf="@+id/ic_company"
-                app:layout_constraintStart_toStartOf="@+id/ic_company"
-                app:layout_constraintTop_toBottomOf="@+id/ic_company" />
+                app:layout_constraintEnd_toEndOf="@+id/detail_ic_company"
+                app:layout_constraintStart_toStartOf="@+id/detail_ic_company"
+                app:layout_constraintTop_toBottomOf="@+id/detail_ic_company" />
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/ic_link"
+                android:id="@+id/detail_ic_link"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginStart="8dp"
                 android:src="@drawable/ic_link"
                 android:tint="@color/black"
-                app:layout_constraintBottom_toTopOf="@+id/ic_twitter"
-                app:layout_constraintEnd_toEndOf="@+id/ic_location"
-                app:layout_constraintStart_toStartOf="@+id/ic_location"
-                app:layout_constraintTop_toBottomOf="@+id/ic_location" />
+                app:layout_constraintBottom_toBottomOf="@+id/detail_tv_company"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toTopOf="@+id/detail_tv_company" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/detail_tv_link"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                app:layout_constraintBottom_toBottomOf="@+id/ic_link"
-                app:layout_constraintStart_toEndOf="@+id/ic_link"
-                app:layout_constraintTop_toTopOf="@+id/ic_link"
+                app:layout_constraintBottom_toBottomOf="@+id/detail_ic_link"
+                app:layout_constraintStart_toEndOf="@+id/detail_ic_link"
+                app:layout_constraintTop_toTopOf="@+id/detail_ic_link"
                 tools:text="onirutla.medium.com" />
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/ic_twitter"
+                android:id="@+id/detail_ic_twitter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginStart="8dp"
                 android:src="@drawable/ic_twitter"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/ic_link"
-                app:layout_constraintStart_toStartOf="@+id/ic_link"
-                app:layout_constraintTop_toBottomOf="@+id/ic_link" />
+                app:layout_constraintBottom_toBottomOf="@+id/detail_tv_location"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toTopOf="@+id/detail_tv_location" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/detail_tv_twitter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                app:layout_constraintBottom_toBottomOf="@+id/ic_twitter"
-                app:layout_constraintStart_toEndOf="@+id/ic_twitter"
-                app:layout_constraintTop_toTopOf="@+id/ic_twitter"
+                app:layout_constraintBottom_toBottomOf="@+id/detail_ic_twitter"
+                app:layout_constraintStart_toEndOf="@+id/detail_ic_twitter"
+                app:layout_constraintTop_toTopOf="@+id/detail_ic_twitter"
                 tools:text="onirutlA" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
