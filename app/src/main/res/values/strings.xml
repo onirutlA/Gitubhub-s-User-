@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Github\'sUser</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="logo">logo</string>
     <string name="home">Home</string>
@@ -11,4 +11,5 @@
     <string name="developer_detail">Android Native Developer, Web Developer, UI/UX Designer, Computer Science Student</string>
     <string name="developer_name">Ricky Alturino</string>
     <string name="home_title">Let\'s Search User on Github</string>
+
 </resources>
