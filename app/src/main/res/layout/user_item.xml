@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:elevation="8dp">
+    android:elevation="8dp"
+    android:layout_margin="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -22,7 +23,7 @@
             tools:src="@drawable/developer_image" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/list_name"
             style="@style/Body2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -34,13 +35,14 @@
             tools:text="Ricky Alturino" />
 
         <TextView
+            android:id="@+id/list_detail"
             style="@style/Caption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:maxLines="2"
             app:layout_constraintBottom_toBottomOf="@+id/user_image"
-            app:layout_constraintStart_toStartOf="@+id/textView"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintStart_toStartOf="@+id/list_name"
+            app:layout_constraintTop_toBottomOf="@+id/list_name"
             tools:text="Halo Ini Ricky" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

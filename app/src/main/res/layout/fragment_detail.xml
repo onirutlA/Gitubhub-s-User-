@@ -1,13 +1,257 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.detail.DetailFragment">
 
-    <TextView
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/detail_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:elevation="@dimen/Appbar"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$Behavior"
+        app:layout_scrollFlags="scroll|snap">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/detail_toolbar"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:contentInsetStartWithNavigation="0dp"
+
+            app:navigationIcon="@drawable/ic_back_24">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/detail_nav_name"
+                    style="@style/Subtitle2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Jake Wharton" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="25dp"
+            app:layout_scrollFlags="scroll|snap">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/detail_user_image"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                tools:src="@drawable/developer_image" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/detail_header_follower"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toStartOf="@+id/detail_header_following"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/detail_user_nickname"
+                tools:text="Followers" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/detail_number_follower"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="@+id/detail_header_follower"
+                app:layout_constraintStart_toStartOf="@+id/detail_header_follower"
+                app:layout_constraintTop_toBottomOf="@+id/detail_header_follower"
+                tools:text="15" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/detail_header_following"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toStartOf="@+id/detail_header_repository"
+                app:layout_constraintStart_toEndOf="@+id/detail_header_follower"
+                app:layout_constraintTop_toBottomOf="@+id/detail_user_nickname"
+                tools:text="Following" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/detail_number_following"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="@+id/detail_header_following"
+                app:layout_constraintStart_toStartOf="@+id/detail_header_following"
+                app:layout_constraintTop_toBottomOf="@+id/detail_header_following"
+                tools:text="16" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/detail_number_repository"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="@+id/detail_header_repository"
+                app:layout_constraintStart_toStartOf="@+id/detail_header_repository"
+                app:layout_constraintTop_toBottomOf="@+id/detail_header_repository"
+                tools:text="7" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/detail_header_repository"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/detail_header_following"
+                app:layout_constraintTop_toBottomOf="@+id/detail_user_nickname"
+                tools:text="Repository" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/detail_user_name"
+                style="@style/Headline5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="@+id/detail_user_image"
+                app:layout_constraintStart_toStartOf="@+id/detail_user_image"
+                app:layout_constraintTop_toBottomOf="@+id/detail_user_image"
+                tools:text="Ricky Alturino" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/detail_user_nickname"
+                style="@style/Body2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="@+id/detail_user_name"
+                app:layout_constraintStart_toStartOf="@+id/detail_user_name"
+                app:layout_constraintTop_toBottomOf="@+id/detail_user_name"
+                tools:text="onirutlA" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/detail_tv_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/detail_ic_location"
+                app:layout_constraintStart_toEndOf="@+id/detail_ic_location"
+                app:layout_constraintTop_toTopOf="@+id/detail_ic_location"
+                tools:text="Palembang, Indonesia" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/detail_ic_company"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/ic_company"
+                android:tint="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/detail_number_follower" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/detail_tv_company"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/detail_ic_company"
+                app:layout_constraintStart_toEndOf="@+id/detail_ic_company"
+                app:layout_constraintTop_toTopOf="@+id/detail_ic_company"
+                tools:text="Sriwijaya University" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/detail_ic_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/ic_location"
+                android:tint="@color/black"
+                app:layout_constraintEnd_toEndOf="@+id/detail_ic_company"
+                app:layout_constraintStart_toStartOf="@+id/detail_ic_company"
+                app:layout_constraintTop_toBottomOf="@+id/detail_ic_company" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/detail_ic_link"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:src="@drawable/ic_link"
+                android:tint="@color/black"
+                app:layout_constraintBottom_toBottomOf="@+id/detail_tv_company"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toTopOf="@+id/detail_tv_company" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/detail_tv_link"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/detail_ic_link"
+                app:layout_constraintStart_toEndOf="@+id/detail_ic_link"
+                app:layout_constraintTop_toTopOf="@+id/detail_ic_link"
+                tools:text="onirutla.medium.com" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/detail_ic_twitter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:src="@drawable/ic_twitter"
+                app:layout_constraintBottom_toBottomOf="@+id/detail_tv_location"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toTopOf="@+id/detail_tv_location" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/detail_tv_twitter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/detail_ic_twitter"
+                app:layout_constraintStart_toEndOf="@+id/detail_ic_twitter"
+                app:layout_constraintTop_toTopOf="@+id/detail_ic_twitter"
+                tools:text="onirutlA" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/detail_tab_layout"
+            style="@style/Widget.MaterialComponents.TabLayout.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="detail" />
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-</FrameLayout>
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/detail_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,111 +1,51 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Theme.GithubsUser" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <!-- Primary brand color. -->
+
+    <!--Final, top-level theme-->
+    <style name="Theme.GithubsUser.DayNight" parent="Theme.GithubsUser"/>
+
+    <style name="Theme.GithubsUser" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+        <!--Color-->
         <item name="colorPrimary">@color/primaryColor</item>
         <item name="colorPrimaryVariant">@color/primaryLightColor</item>
         <item name="colorPrimaryDark">@color/primaryDarkColor</item>
-        <item name="colorOnPrimary">@color/primaryTextColor</item>
-        <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/secondaryColor</item>
-        <item name="colorSecondaryVariant">@color/secondaryDarkColor</item>
+        <item name="colorSecondaryVariant">@color/secondaryLightColor</item>
+
+        <item name="android:colorBackground">@color/white</item>
+        <item name="colorSurface">@color/white</item>
+
+        <item name="colorOnPrimary">@color/primaryTextColor</item>
         <item name="colorOnSecondary">@color/secondaryTextColor</item>
+        <item name="colorOnBackground">@color/primaryTextColor</item>
+        <item name="colorOnSurface">@color/primaryTextColor</item>
 
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryDark</item>
+        <!--Shape Style-->
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.GithubsUser.SmallComponent</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.GithubsUser.MediumComponent</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.GithubsUser.LargeComponent</item>
 
-        <!-- Customize your theme here. -->
-    </style>
+        <!--Typography-->
+        <item name="textAppearanceHeadline1">@style/Headline1</item>
+        <item name="textAppearanceHeadline2">@style/Headline2</item>
+        <item name="textAppearanceHeadline3">@style/Headline3</item>
+        <item name="textAppearanceHeadline4">@style/Headline4</item>
+        <item name="textAppearanceHeadline5">@style/Headline5</item>
+        <item name="textAppearanceHeadline6">@style/Headline6</item>
+        <item name="textAppearanceSubtitle1">@style/Subtitle1</item>
+        <item name="textAppearanceSubtitle2">@style/Subtitle2</item>
+        <item name="textAppearanceBody1">@style/Body1</item>
+        <item name="textAppearanceBody2">@style/Body2</item>
+        <item name="textAppearanceButton">@style/Button</item>
+        <item name="textAppearanceCaption">@style/Caption</item>
+        <item name="textAppearanceOverline">@style/Overline</item>
 
-    <style name="Headline1" parent="TextAppearance.MaterialComponents.Headline1">
-        <item name="fontFamily">@font/opensans_regular</item>
-        <item name="android:fontFamily">@font/opensans_regular</item>
-        <item name="android:letterSpacing">-1.5</item>
-        <item name="android:textSize">95sp</item>
-    </style>
+        <!--Styles-->
+        <item name="bottomAppBarStyle">@style/Widget.MaterialComponents.BottomAppBar.PrimarySurface</item>
+        <item name="bottomSheetStyle">@style/Widget.MaterialComponents.BottomSheet.Modal</item>
 
-    <style name="Headline2" parent="TextAppearance.MaterialComponents.Headline2">
-        <item name="fontFamily">@font/opensans_regular</item>
-        <item name="android:fontFamily">@font/opensans_regular</item>
-        <item name="android:letterSpacing">-0.5</item>
-        <item name="android:textSize">59sp</item>
-    </style>
-
-    <style name="Headline3" parent="TextAppearance.MaterialComponents.Headline3">
-        <item name="fontFamily">@font/opensans_regular</item>
-        <item name="android:fontFamily">@font/opensans_regular</item>
-        <item name="android:textSize">48sp</item>
-        <item name="android:letterSpacing">0</item>
-    </style>
-
-    <style name="Headline4" parent="TextAppearance.MaterialComponents.Headline4">
-        <item name="fontFamily">@font/opensans_regular</item>
-        <item name="android:fontFamily">@font/opensans_regular</item>
-        <item name="android:textSize">34sp</item>
-        <item name="android:letterSpacing">0.25</item>
-    </style>
-
-    <style name="Headline5" parent="TextAppearance.MaterialComponents.Headline5">
-        <item name="fontFamily">@font/opensans_bold</item>
-        <item name="android:fontFamily">@font/opensans_regular</item>
-        <item name="android:textSize">24sp</item>
-        <item name="android:letterSpacing">0</item>
-        <item name="android:textStyle">bold</item>
-    </style>
-
-    <style name="Headline6" parent="TextAppearance.MaterialComponents.Headline6">
-        <item name="fontFamily">@font/opensans_regular</item>
-        <item name="android:fontFamily">@font/opensans_regular</item>
-        <item name="android:textSize">20sp</item>
-        <item name="android:letterSpacing">0.15</item>
-    </style>
-
-    <style name="Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
-        <item name="fontFamily">@font/opensans_regular</item>
-        <item name="android:fontFamily">@font/opensans_regular</item>
-        <item name="android:textSize">16sp</item>
-        <item name="android:letterSpacing">0.15</item>
-    </style>
-
-    <style name="Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
-        <item name="fontFamily">@font/opensans_regular</item>
-        <item name="android:fontFamily">@font/opensans_regular</item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:letterSpacing">0.1</item>
-    </style>
-
-    <style name="Body1" parent="TextAppearance.MaterialComponents.Body1">
-        <item name="fontFamily">@font/opensans_regular</item>
-        <item name="android:fontFamily">@font/opensans_regular</item>
-        <item name="android:textSize">16sp</item>
-        <item name="android:letterSpacing">0.5</item>
-    </style>
-
-    <style name="Body2" parent="TextAppearance.MaterialComponents.Body2">
-        <item name="fontFamily">@font/opensans_bold</item>
-        <item name="android:fontFamily">@font/opensans_bold</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textSize">14sp</item>
-    </style>
-
-    <style name="Button" parent="TextAppearance.MaterialComponents.Button">
-        <item name="fontFamily">@font/opensans_regular</item>
-        <item name="android:fontFamily">@font/opensans_regular</item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:letterSpacing">1.25</item>
-    </style>
-
-    <style name="Caption" parent="TextAppearance.MaterialComponents.Caption">
-        <item name="fontFamily">@font/opensans_regular</item>
-        <item name="android:fontFamily">@font/opensans_regular</item>
-        <item name="android:textSize">12sp</item>
-        <item name="android:letterSpacing">0.4</item>
-    </style>
-
-    <style name="Overline" parent="TextAppearance.MaterialComponents.Overline">
-        <item name="fontFamily">@font/opensans_regular</item>
-        <item name="android:fontFamily">@font/opensans_regular</item>
-        <item name="android:textSize">10sp</item>
-        <item name="android:letterSpacing">1.5</item>
+        <!--System/Platform attributes-->
+        <item name="android:windowBackground">?android:colorBackground</item>
+        <item name="android:windowLightStatusBar" tools:ignore="NewApi">true</item>
     </style>
 </resources>
