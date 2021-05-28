@@ -6,6 +6,7 @@
         <item name="android:fontFamily">@font/opensans_regular</item>
         <item name="android:letterSpacing">-1.5</item>
         <item name="android:textSize">95sp</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="Headline2" parent="TextAppearance.MaterialComponents.Headline2">
@@ -13,6 +14,7 @@
         <item name="android:fontFamily">@font/opensans_regular</item>
         <item name="android:letterSpacing">-0.5</item>
         <item name="android:textSize">59sp</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="Headline3" parent="TextAppearance.MaterialComponents.Headline3">
@@ -20,6 +22,7 @@
         <item name="android:fontFamily">@font/opensans_regular</item>
         <item name="android:textSize">48sp</item>
         <item name="android:letterSpacing">0</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="Headline4" parent="TextAppearance.MaterialComponents.Headline4">
@@ -27,6 +30,7 @@
         <item name="android:fontFamily">@font/opensans_regular</item>
         <item name="android:textSize">34sp</item>
         <item name="android:letterSpacing">0.25</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="Headline5" parent="TextAppearance.MaterialComponents.Headline5">
@@ -35,6 +39,7 @@
         <item name="android:textSize">24sp</item>
         <item name="android:letterSpacing">0</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="Headline6" parent="TextAppearance.MaterialComponents.Headline6">
@@ -42,6 +47,7 @@
         <item name="android:fontFamily">@font/opensans_regular</item>
         <item name="android:textSize">20sp</item>
         <item name="android:letterSpacing">0.15</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
@@ -49,6 +55,7 @@
         <item name="android:fontFamily">@font/opensans_regular</item>
         <item name="android:textSize">16sp</item>
         <item name="android:letterSpacing">0.15</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
@@ -56,6 +63,7 @@
         <item name="android:fontFamily">@font/opensans_regular</item>
         <item name="android:textSize">14sp</item>
         <item name="android:letterSpacing">0.1</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="Body1" parent="TextAppearance.MaterialComponents.Body1">
@@ -63,6 +71,7 @@
         <item name="android:fontFamily">@font/opensans_regular</item>
         <item name="android:textSize">16sp</item>
         <item name="android:letterSpacing">0.5</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="Body2" parent="TextAppearance.MaterialComponents.Body2">
@@ -70,6 +79,7 @@
         <item name="android:fontFamily">@font/opensans_bold</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="Button" parent="TextAppearance.MaterialComponents.Button">
@@ -77,13 +87,14 @@
         <item name="android:fontFamily">@font/opensans_regular</item>
         <item name="android:textSize">14sp</item>
         <item name="android:letterSpacing">1.25</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="Caption" parent="TextAppearance.MaterialComponents.Caption">
         <item name="fontFamily">@font/opensans_regular</item>
         <item name="android:fontFamily">@font/opensans_regular</item>
         <item name="android:textSize">12sp</item>
-        <item name="android:letterSpacing">0.4</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="Overline" parent="TextAppearance.MaterialComponents.Overline">
@@ -91,6 +102,7 @@
         <item name="android:fontFamily">@font/opensans_regular</item>
         <item name="android:textSize">10sp</item>
         <item name="android:letterSpacing">1.5</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
 </resources>

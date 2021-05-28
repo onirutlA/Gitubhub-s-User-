@@ -1,6 +1,6 @@
 *.iml
 .gradle
-/.idea/*
+/.idea/
 build
 build-cache
 /local.properties
@@ -11,7 +11,7 @@ build-cache
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
 .DS_Store
-/build
+/build/
 /captures
 .externalNativeBuild
 .cxx

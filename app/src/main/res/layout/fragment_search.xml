@@ -6,24 +6,74 @@
     android:layout_height="match_parent"
     tools:context=".view.search.SearchFragment">
 
-    <include
-        android:id="@+id/search_appbar"
-        layout="@layout/toolbar_search"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$Behavior" />
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:paddingHorizontal="2dp"
+        android:paddingVertical="10dp"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$Behavior">
 
-    <androidx.core.widget.NestedScrollView
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/search_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:contentInsetStartWithNavigation="0dp"
+            app:navigationIcon="@drawable/ic_back_24">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_home_search"
+                android:paddingHorizontal="11dp">
+
+                <EditText
+                    android:id="@+id/search_bar"
+                    style="@style/Subtitle2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="@string/search"
+                    android:imeOptions="actionSearch"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:padding="8dp"
+                    android:singleLine="true"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/gray"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/search_button"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/search_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:contentDescription="@string/search"
+                    android:padding="8dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_search"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/white" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/search_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/search_list"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:listitem="@layout/user_item" />
-
-    </androidx.core.widget.NestedScrollView>
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/user_item" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
