@@ -15,7 +15,7 @@ import javax.inject.Inject
 @HiltViewModel
 class SearchViewModel @Inject constructor(private val remoteDataSource: RemoteDataSource) : ViewModel() {
 
-    private val _userSearch: MutableStateFlow<SearchResponse> = MutableStateFlow(SearchResponse(null, null, null))
+    private val _userSearch: MutableStateFlow<SearchResponse> = MutableStateFlow(SearchResponse())
     private val userSearch: StateFlow<SearchResponse> = _userSearch
 
     fun getUserSearch(username: String): StateFlow<SearchResponse>{
