@@ -43,9 +43,9 @@ class SearchAdapter : ListAdapter<UserResponse, SearchAdapter.UserViewHolder>(di
             binding.apply {
                 userItemName.text = user.username
                 userItemType.text = user.type
-                GlideApp.with(userImage.context)
+                GlideApp.with(userItemImage.context)
                     .load(user.avatarUrl)
-                    .into(userImage)
+                    .into(userItemImage)
             }
         }
     }

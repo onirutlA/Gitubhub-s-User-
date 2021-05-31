@@ -10,9 +10,11 @@ import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import com.onirutla.githubsuser.databinding.FragmentSearchBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
 
 @AndroidEntryPoint
 class SearchFragment : Fragment() {
@@ -34,20 +36,28 @@ class SearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.apply {
-            searchBar.setOnEditorActionListener { _, actionId, _ ->
-                var search = false
-                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                    searchUser()
-                    requireView().closeSoftKeyboard(requireContext())
-                    search = true
-                }
-                search
-            }
+        setupSearchbar()
+        setupToolbar()
+    }
 
-            searchToolbar.setNavigationOnClickListener {
-                it.findNavController().navigateUp()
-            }
+    private fun setupSearchbar() {
+        binding.searchBar.setOnEditorActionListener { _, actionId, _ ->
+            return@setOnEditorActionListener isSearchClicked(actionId)
+        }
+    }
+
+    private fun isSearchClicked(actionId: Int): Boolean {
+        if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+            searchUser()
+            requireView().closeSoftKeyboard(requireContext())
+            return true
+        }
+        return false
+    }
+
+    private fun setupToolbar() {
+        binding.searchToolbar.setNavigationOnClickListener {
+            it.findNavController().navigateUp()
         }
     }
 
@@ -66,13 +76,19 @@ class SearchFragment : Fragment() {
     }
 
     private fun getUserSearch(keyword: String) {
-        viewModel.getUserSearch(keyword).observe(viewLifecycleOwner, { response ->
-            searchAdapter.submitList(response.items)
-            binding.searchList.apply {
-                adapter = searchAdapter
-                setHasFixedSize(true)
+        lifecycleScope.launchWhenStarted {
+            viewModel.getUserSearch(username = keyword).collect {
+                searchAdapter.submitList(it.items)
+                initDataToList()
             }
-        })
+        }
+    }
+
+    private fun initDataToList() {
+        binding.searchList.apply {
+            adapter = searchAdapter
+            setHasFixedSize(true)
+        }
     }
 
     private fun View.closeSoftKeyboard(context: Context) {
