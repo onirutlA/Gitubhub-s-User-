@@ -9,13 +9,6 @@
         app:showAsAction="withText"/>
 
     <item
-        android:id="@+id/search_fragment"
-        android:icon="@drawable/ic_search"
-        android:orderInCategory="2"
-        app:showAsAction="withText"
-        android:title="@string/search" />
-
-    <item
         android:id="@+id/profile_fragment"
         android:icon="@drawable/ic_person"
         android:orderInCategory="3"

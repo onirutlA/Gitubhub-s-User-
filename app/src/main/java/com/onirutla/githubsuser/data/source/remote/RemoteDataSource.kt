@@ -26,12 +26,13 @@ class RemoteDataSource @Inject constructor(
 
     fun getUserDetail(username: String): Flow<UserResponse> = flow {
         val response = apiService.getUserDetail(username)
+        Log.d("remote data source", "${response.body()}")
         if(response.isSuccessful){
             response.body()?.let {
                 emit(it)
             }
         }
-    }
+    }.flowOn(Dispatchers.IO)
 
     fun getUsersFollowers(username: String): Flow<List<UserResponse>> = flow {
         val response = apiService.getUserFollowers(username)
