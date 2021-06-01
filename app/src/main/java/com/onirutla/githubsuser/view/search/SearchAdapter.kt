@@ -2,6 +2,7 @@ package com.onirutla.githubsuser.view.search
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -40,12 +41,18 @@ class SearchAdapter : ListAdapter<UserResponse, SearchAdapter.UserViewHolder>(di
     inner class UserViewHolder(private val binding: UserItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(user: UserResponse) {
+            val username = user.username
+            val type = user.type
             binding.apply {
-                userItemName.text = user.username
-                userItemType.text = user.type
+                userItemName.text = username
+                userItemType.text = type
                 GlideApp.with(userItemImage.context)
                     .load(user.avatarUrl)
                     .into(userItemImage)
+                userItemContainer.setOnClickListener {
+                    val direction = SearchFragmentDirections.actionSearchFragmentToDetailFragment(username)
+                    it.findNavController().navigate(direction)
+                }
             }
         }
     }
