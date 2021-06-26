@@ -1,13 +1,15 @@
 package com.onirutla.githubsuser.view.detail
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
+import com.google.android.material.tabs.TabLayoutMediator
+import com.onirutla.githubsuser.R
 import com.onirutla.githubsuser.databinding.FragmentDetailBinding
 import com.onirutla.githubsuser.util.GlideApp
 import dagger.hilt.android.AndroidEntryPoint
@@ -32,26 +34,44 @@ class DetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         lifecycleScope.launchWhenStarted {
-            val username = args.username
-            if (username != null)
-                viewModel.getUserDetail(username).collect {
-                    binding.apply {
-                        detailTvNavName.text = it.name
-                        detailTvUserName.text = it.name
-                        detailTvUserNickname.text = it.username
-                        detailTvNumberRepository.text = "${it.publicRepos}"
-                        detailTvNumberFollowing.text = "${it.following}"
-                        detailTvNumberFollower.text = "${it.followers}"
-                        detailTvTwitter.text = it.twitterUsername
-                        detailTvLink.text = it.blog
-                        detailTvCompany.text = it.company
-                        detailTvLocation.text = it.location
-                        GlideApp.with(detailUserImage)
-                            .load(it.avatarUrl)
-                            .into(detailUserImage)
-                    }
-                }
+            setupDetail()
         }
+
+        binding.apply {
+            val username = args.username
+            if(username != null){
+                detailViewPager.adapter = PagerAdapter(this@DetailFragment, username = username)
+            }
+
+            TabLayoutMediator(detailTabLayout, detailViewPager) { tab, position ->
+                when (position) {
+                    0 -> tab.text = getString(R.string.followers)
+                    1 -> tab.text = getString(R.string.following)
+                }
+            }.attach()
+        }
+    }
+
+    private suspend fun setupDetail() {
+        val username = args.username
+        if (username != null)
+            viewModel.getUserDetail(username).collect {
+                binding.apply {
+                    detailTvNavName.text = it.username
+                    detailTvUserName.text = it.name
+                    detailTvUserNickname.text = it.username
+                    detailTvNumberRepository.text = "${it.publicRepos}"
+                    detailTvNumberFollowing.text = "${it.following}"
+                    detailTvNumberFollower.text = "${it.followers}"
+                    detailTvTwitter.text = it.twitterUsername
+                    detailTvLink.text = it.blog
+                    detailTvCompany.text = it.company
+                    detailTvLocation.text = it.location
+                    GlideApp.with(detailUserImage)
+                        .load(it.avatarUrl)
+                        .into(detailUserImage)
+                }
+            }
     }
 
     override fun onDestroyView() {

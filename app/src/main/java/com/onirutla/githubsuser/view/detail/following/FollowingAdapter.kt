@@ -1,4 +1,4 @@
-package com.onirutla.githubsuser.view.search
+package com.onirutla.githubsuser.view.detail.following
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,8 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.onirutla.githubsuser.data.source.remote.response.UserResponse
 import com.onirutla.githubsuser.databinding.UserItemBinding
 import com.onirutla.githubsuser.util.GlideApp
+import com.onirutla.githubsuser.view.detail.DetailFragmentDirections
 
-class SearchAdapter : ListAdapter<UserResponse, SearchAdapter.UserViewHolder>(diffUtil) {
+class FollowingAdapter : ListAdapter<UserResponse, FollowingAdapter.FollowingViewHolder>(diffUtil) {
     private lateinit var binding: UserItemBinding
 
     companion object {
@@ -28,17 +29,17 @@ class SearchAdapter : ListAdapter<UserResponse, SearchAdapter.UserViewHolder>(di
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): SearchAdapter.UserViewHolder {
+    ): FollowingViewHolder {
         binding = UserItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return UserViewHolder(binding)
+        return FollowingViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: SearchAdapter.UserViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: FollowingViewHolder, position: Int) {
         val userResponse = getItem(position)
         holder.bind(user = userResponse)
     }
 
-    inner class UserViewHolder(private val binding: UserItemBinding) :
+    inner class FollowingViewHolder(private val binding: UserItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(user: UserResponse) {
             val username = user.username
@@ -50,7 +51,7 @@ class SearchAdapter : ListAdapter<UserResponse, SearchAdapter.UserViewHolder>(di
                     .load(user.avatarUrl)
                     .into(userItemImage)
                 userItemContainer.setOnClickListener {
-                    val direction = SearchFragmentDirections.actionSearchFragmentToDetailFragment(username)
+                    val direction = DetailFragmentDirections.actionDetailFragmentSelf(username)
                     it.findNavController().navigate(direction)
                 }
             }

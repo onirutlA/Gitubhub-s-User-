@@ -27,5 +27,9 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
         setupWithNavController(binding.bottomNav, navController)
+
+        binding.fabSearchButton.setOnClickListener {
+            navController.navigate(R.id.action_global_search_fragment)
+        }
     }
 }

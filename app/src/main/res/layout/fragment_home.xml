@@ -22,61 +22,10 @@
                 android:layout_height="40dp"
                 android:contentDescription="@string/logo"
                 android:scaleType="centerInside"
-                android:src="@drawable/github_logo"
-                app:tint="@color/white" />
+                android:src="@drawable/github_logo" />
 
         </com.google.android.material.appbar.MaterialToolbar>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:paddingHorizontal="16dp"
-            android:paddingVertical="10dp">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/search_container"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/bg_home_search"
-                android:paddingHorizontal="11dp">
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/search_bar"
-                    style="@style/Subtitle2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:hint="@string/search"
-                    android:imeOptions="actionSearch"
-                    android:importantForAutofill="no"
-                    android:inputType="text"
-                    android:padding="8dp"
-                    android:singleLine="true"
-                    android:textColor="@color/white"
-                    android:textColorHint="@color/gray"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/search_button"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageButton
-                    android:id="@+id/search_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:contentDescription="@string/search"
-                    android:padding="8dp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/ic_search"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:tint="@color/white" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </RelativeLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout

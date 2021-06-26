@@ -3,22 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/home_fragment"
+        android:enabled="true"
         android:icon="@drawable/ic_home"
         android:orderInCategory="1"
         android:title="@string/home"
-        app:showAsAction="withText"/>
+        app:showAsAction="ifRoom"/>
 
     <item
-        android:id="@+id/profile_fragment"
-        android:icon="@drawable/ic_person"
-        android:orderInCategory="3"
-        android:title="@string/developer"
-        app:showAsAction="withText"/>
+        android:id="@+id/search_fragment"
+        android:enabled="false"
+        android:title=""
+        android:orderInCategory="2"
+        app:showAsAction="ifRoom"/>
 
     <item
         android:id="@+id/setting_fragment"
+        android:enabled="true"
         android:icon="@drawable/ic_settings"
         android:orderInCategory="3"
         android:title="@string/setting"
-        app:showAsAction="withText"/>
+        app:showAsAction="ifRoom"/>
 </menu>

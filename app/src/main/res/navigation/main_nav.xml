@@ -8,11 +8,7 @@
         android:id="@+id/home_fragment"
         android:name="com.onirutla.githubsuser.view.home.HomeFragment"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_homeFragment_to_searchFragment"
-            app:destination="@id/search_fragment" />
-    </fragment>
+        tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/search_fragment"
         android:name="com.onirutla.githubsuser.view.search.SearchFragment"
@@ -55,4 +51,5 @@
         android:name="com.onirutla.githubsuser.view.setting.SettingFragment"
         android:label="fragment_setting"
         tools:layout="@layout/fragment_setting" />
+    <action android:id="@+id/action_global_search_fragment" app:destination="@id/search_fragment" />
 </navigation>
