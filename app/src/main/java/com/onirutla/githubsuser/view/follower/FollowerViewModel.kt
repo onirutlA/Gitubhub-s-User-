@@ -1,4 +1,4 @@
-package com.onirutla.githubsuser.view.detail.following
+package com.onirutla.githubsuser.view.follower
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -13,20 +13,18 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class FollowingViewModel @Inject constructor(
-    private val remoteDataSource: RemoteDataSource
-    ) : ViewModel() {
+class FollowerViewModel @Inject constructor(private val remoteDataSource: RemoteDataSource) :
+    ViewModel() {
 
-    private val _userFollowing: MutableStateFlow<List<UserResponse>> = MutableStateFlow(emptyList())
-    private val userFollowing: StateFlow<List<UserResponse>> = _userFollowing
+    private val _userFollowers: MutableStateFlow<List<UserResponse>> = MutableStateFlow(emptyList())
+    private val userFollowers: StateFlow<List<UserResponse>> = _userFollowers
 
-    fun getUserFollowing(username: String): StateFlow<List<UserResponse>> {
+    fun getUserFollowers(username: String): StateFlow<List<UserResponse>> {
         viewModelScope.launch(Dispatchers.IO) {
-            remoteDataSource.getUsersFollowing(username).collect {
-                _userFollowing.value = it
+            remoteDataSource.getUserFollowers(username).collect {
+                _userFollowers.value = it
             }
         }
-        return userFollowing
+        return userFollowers
     }
-
 }

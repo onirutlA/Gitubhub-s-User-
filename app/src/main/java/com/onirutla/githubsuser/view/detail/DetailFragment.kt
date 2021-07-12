@@ -7,9 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.google.android.material.tabs.TabLayoutMediator
-import com.onirutla.githubsuser.R
 import com.onirutla.githubsuser.databinding.FragmentDetailBinding
 import com.onirutla.githubsuser.util.GlideApp
 import dagger.hilt.android.AndroidEntryPoint
@@ -33,22 +32,9 @@ class DetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupOnClick()
         lifecycleScope.launchWhenStarted {
             setupDetail()
-        }
-
-        binding.apply {
-            val username = args.username
-            if(username != null){
-                detailViewPager.adapter = PagerAdapter(this@DetailFragment, username = username)
-            }
-
-            TabLayoutMediator(detailTabLayout, detailViewPager) { tab, position ->
-                when (position) {
-                    0 -> tab.text = getString(R.string.followers)
-                    1 -> tab.text = getString(R.string.following)
-                }
-            }.attach()
         }
     }
 
@@ -72,6 +58,20 @@ class DetailFragment : Fragment() {
                         .into(detailUserImage)
                 }
             }
+    }
+
+    private fun setupOnClick(){
+        binding.apply {
+            containerFollower.setOnClickListener {
+                findNavController().navigate(DetailFragmentDirections.actionDetailFragmentToFollowerFragment(args.username))
+            }
+            containerFollowing.setOnClickListener {
+                findNavController().navigate(DetailFragmentDirections.actionDetailFragmentToFollowingFragment(args.username))
+            }
+            detailToolbar.setNavigationOnClickListener {
+                findNavController().navigateUp()
+            }
+        }
     }
 
     override fun onDestroyView() {

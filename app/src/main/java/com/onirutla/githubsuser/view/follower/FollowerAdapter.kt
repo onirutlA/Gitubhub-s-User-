@@ -1,15 +1,13 @@
-package com.onirutla.githubsuser.view.detail.follower
+package com.onirutla.githubsuser.view.follower
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.onirutla.githubsuser.data.source.remote.response.UserResponse
 import com.onirutla.githubsuser.databinding.UserItemBinding
 import com.onirutla.githubsuser.util.GlideApp
-import com.onirutla.githubsuser.view.detail.DetailFragmentDirections
 
 class FollowerAdapter : ListAdapter<UserResponse, FollowerAdapter.FollowerViewHolder>(diffUtil) {
     private lateinit var binding: UserItemBinding
@@ -50,10 +48,6 @@ class FollowerAdapter : ListAdapter<UserResponse, FollowerAdapter.FollowerViewHo
                 GlideApp.with(userItemImage.context)
                     .load(user.avatarUrl)
                     .into(userItemImage)
-                userItemContainer.setOnClickListener {
-                    val direction = DetailFragmentDirections.actionDetailFragmentSelf(username)
-                    it.findNavController().navigate(direction)
-                }
             }
         }
     }
