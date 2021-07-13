@@ -25,6 +25,7 @@
         app:fabAlignmentMode="center"
         app:fabCradleMargin="8dp"
         app:fabCradleRoundedCornerRadius="20dp"
+        app:fabAnimationMode="scale"
         app:hideOnScroll="true"
         app:layout_behavior="com.google.android.material.bottomappbar.BottomAppBar$Behavior">
 
@@ -49,7 +50,7 @@
         android:src="@drawable/ic_search"
         app:elevation="4dp"
         app:layout_anchor="@id/bottom_app_bar"
-        app:layout_behavior="com.google.android.material.floatingactionbutton.FloatingActionButton$Behavior" />
+        app:layout_behavior="com.google.android.material.floatingactionbutton.FloatingActionButton$Behavior"/>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
