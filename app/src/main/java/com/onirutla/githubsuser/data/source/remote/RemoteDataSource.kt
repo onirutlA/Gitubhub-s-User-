@@ -16,7 +16,7 @@ class RemoteDataSource @Inject constructor(
 ) {
     fun getUsersSearch(username: String): Flow<SearchResponse> = flow {
         val response = apiService.getUsersSearch(username)
-        Log.d("remote data source", "${response.body()!!.items}")
+        Log.d("user search", "${response.body()!!.items}")
         if(response.isSuccessful){
             response.body()?.let {
                 emit(it)
@@ -26,7 +26,7 @@ class RemoteDataSource @Inject constructor(
 
     fun getUserDetail(username: String): Flow<UserResponse> = flow {
         val response = apiService.getUserDetail(username)
-        Log.d("remote data source", "${response.body()}")
+        Log.d("user detail", "${response.body()}")
         if(response.isSuccessful){
             response.body()?.let {
                 emit(it)
@@ -34,21 +34,23 @@ class RemoteDataSource @Inject constructor(
         }
     }.flowOn(Dispatchers.IO)
 
-    fun getUsersFollowers(username: String): Flow<List<UserResponse>> = flow {
-        val response = apiService.getUserFollowers(username)
+    fun getUsersFollowing(username: String): Flow<List<UserResponse>> = flow {
+        val response = apiService.getUserFollowing(username)
+        Log.d("following", "${response.body()}")
         if(response.isSuccessful){
             response.body()?.let {
                 emit(it)
             }
         }
-    }
+    }.flowOn(Dispatchers.IO)
 
     fun getUserFollowers(username: String): Flow<List<UserResponse>> = flow {
-        val response = apiService.getUserFollowing(username)
+        val response = apiService.getUserFollowers(username)
+        Log.d("follower", "${response.body()}")
         if(response.isSuccessful){
             response.body()?.let {
                 emit(it)
             }
         }
-    }
+    }.flowOn(Dispatchers.IO)
 }

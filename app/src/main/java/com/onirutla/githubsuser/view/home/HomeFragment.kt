@@ -23,17 +23,7 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.apply {
-            searchBar.setOnClickListener {
-                findNavController(it).navigate(R.id.action_homeFragment_to_searchFragment)
-            }
-            searchContainer.setOnClickListener {
-                findNavController(it).navigate(R.id.action_homeFragment_to_searchFragment)
-            }
-            searchButton.setOnClickListener {
-                findNavController(it).navigate(R.id.action_homeFragment_to_searchFragment)
-            }
-        }
+
     }
 
     override fun onDestroyView() {

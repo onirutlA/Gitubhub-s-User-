@@ -3,37 +3,25 @@ package com.onirutla.githubsuser.view.search
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.onirutla.githubsuser.data.source.remote.response.UserResponse
 import com.onirutla.githubsuser.databinding.UserItemBinding
+import com.onirutla.githubsuser.util.Constant.diffUtil
 import com.onirutla.githubsuser.util.GlideApp
 
-class SearchAdapter : ListAdapter<UserResponse, SearchAdapter.UserViewHolder>(diffUtil) {
+class UserAdapter : ListAdapter<UserResponse, UserAdapter.UserViewHolder>(diffUtil) {
     private lateinit var binding: UserItemBinding
-
-    companion object {
-        private val diffUtil = object : DiffUtil.ItemCallback<UserResponse>() {
-            override fun areItemsTheSame(oldItem: UserResponse, newItem: UserResponse): Boolean {
-                return oldItem == newItem
-            }
-
-            override fun areContentsTheSame(oldItem: UserResponse, newItem: UserResponse): Boolean {
-                return oldItem.id == newItem.id
-            }
-        }
-    }
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): SearchAdapter.UserViewHolder {
+    ): UserAdapter.UserViewHolder {
         binding = UserItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return UserViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: SearchAdapter.UserViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: UserAdapter.UserViewHolder, position: Int) {
         val userResponse = getItem(position)
         holder.bind(user = userResponse)
     }
@@ -50,7 +38,8 @@ class SearchAdapter : ListAdapter<UserResponse, SearchAdapter.UserViewHolder>(di
                     .load(user.avatarUrl)
                     .into(userItemImage)
                 userItemContainer.setOnClickListener {
-                    val direction = SearchFragmentDirections.actionSearchFragmentToDetailFragment(username)
+                    val direction =
+                        SearchFragmentDirections.actionSearchFragmentToDetailFragment(username)
                     it.findNavController().navigate(direction)
                 }
             }

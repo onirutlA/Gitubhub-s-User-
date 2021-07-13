@@ -23,7 +23,7 @@ class SearchFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: SearchViewModel by viewModels()
-    private val searchAdapter: SearchAdapter by lazy { SearchAdapter() }
+    private val userAdapter: UserAdapter by lazy { UserAdapter() }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -63,7 +63,7 @@ class SearchFragment : Fragment() {
 
     private fun searchUser() {
         binding.apply {
-            if (searchBar.text.isNotBlank()) {
+            if (searchBar.text!!.isNotBlank()) {
                 searchList.requestFocus()
                 getUserSearch(searchBar.text.toString())
             }
@@ -78,7 +78,7 @@ class SearchFragment : Fragment() {
     private fun getUserSearch(keyword: String) {
         lifecycleScope.launchWhenStarted {
             viewModel.getUserSearch(username = keyword).collect {
-                searchAdapter.submitList(it.items)
+                userAdapter.submitList(it.items)
                 initDataToList()
             }
         }
@@ -86,7 +86,7 @@ class SearchFragment : Fragment() {
 
     private fun initDataToList() {
         binding.searchList.apply {
-            adapter = searchAdapter
+            adapter = userAdapter
             setHasFixedSize(true)
         }
     }
